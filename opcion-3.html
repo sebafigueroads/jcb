@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="nojs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>JCB CHILE · RUTA 5</title>
+<meta name="description" content="Un recorrido inmersivo por las 15 sucursales de JCB en Chile, de Antofagasta a Punta Arenas: 3.295 kilómetros de minería, construcción, agro y energía.">
+<meta name="theme-color" content="#0E0E0E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JCB Chile · De Antofagasta a Punta Arenas">
+<meta property="og:description" content="15 sucursales, 3.295 km, una ruta que se dibuja mientras bajas. Máquinas JCB para cada zona de Chile.">
+<meta property="og:image" content="https://sebafigueroads.github.io/jcb/img/og-3.jpg">
+<meta property="og:locale" content="es_CL">
+<link rel="icon" href="img/marca/favicon-512.png">
+<link rel="apple-touch-icon" href="img/marca/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   JCB CHILE · RUTA 5
+   Inmersiva: Chile de norte a sur en seis capítulos a pantalla completa.
+   A la derecha, las 15 sucursales con sus coordenadas reales; la ruta
+   se dibuja con el scroll y el punto de la zona activa se encienden.
+   ============================================================ */
+@font-face{font-family:"JCBEuro";src:url(fonts/jcb-regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"JCBEuro";src:url(fonts/jcb-extrabold.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"JCBEuro Cond";src:url(fonts/jcb-extrabold-cond.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Lato";src:url(fonts/lato-regular.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --bg:#0E0E0E; --am:#FCAF26; --ink:#F5F3EE; --body:#D2CFC8; --mute:#8A8884; --hair:rgba(255,255,255,.14);
+  --gut:clamp(20px,5vw,84px); --bar:calc(60px + env(safe-area-inset-bottom)); --ease:cubic-bezier(.16,.84,.28,1);
+  --fd:"JCBEuro",-apple-system,Arial,sans-serif; --fc:"JCBEuro Cond","JCBEuro",Arial Narrow,sans-serif; --ft:"Lato",-apple-system,Arial,sans-serif; --fm:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --mapw:clamp(120px,16vw,260px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+html.js{scroll-snap-type:y proximity}
+body{background:var(--bg);color:var(--body);font-family:var(--ft);font-size:clamp(1rem,1.15vw,1.15rem);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+::selection{background:var(--am);color:#0E0E0E}
+a:focus-visible,button:focus-visible{outline:2px solid var(--am);outline-offset:3px}
+.k{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--am)}
+.k.g{color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.9rem 1.6rem;border-radius:4px;font-family:var(--fd);font-weight:800;font-size:1rem;border:1px solid transparent;transition:transform .25s var(--ease),background .25s}
+.btn-am{background:var(--am);color:#0E0E0E}.btn-am:hover{background:#FFC04D;transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink);border-color:rgba(255,255,255,.4)}.btn-o:hover{border-color:#fff}
+
+/* capítulos */
+.cap{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;isolation:isolate;scroll-snap-align:start}
+.cap .foto{position:absolute;inset:0;z-index:-2}
+.cap .foto img,.cap .foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 2s var(--ease)}
+.cap.in .foto img,.cap.in .foto video{transform:scale(1)}
+.cap .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,14,.35) 0%,rgba(14,14,14,.15) 40%,rgba(14,14,14,.82) 75%,rgba(14,14,14,.98) 100%)}
+.cap .in{position:relative;z-index:2;padding:18vh var(--gut) 12vh;padding-right:calc(var(--gut) + var(--mapw) + 3vw);display:grid;gap:1.3rem;max-width:1600px;width:100%;margin:0 auto}
+@media (max-width:899px){.cap .in{padding-right:calc(var(--gut) + 44px)}}
+.num{font-family:var(--fm);font-weight:700;font-size:clamp(4rem,14vw,13rem);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.26);position:absolute;left:var(--gut);top:11vh;pointer-events:none;user-select:none;z-index:1}
+h1,.cap h2{font-family:var(--fc);font-weight:800;text-transform:uppercase;line-height:.88;letter-spacing:0;color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(3rem,10.4vw,10.2rem);max-width:12ch}
+h1 em{font-style:normal;color:var(--am)}
+.cap h2{font-size:clamp(2.4rem,7vw,7rem);max-width:13ch}
+.cap p.t{max-width:54ch;font-size:clamp(1.02rem,1.4vw,1.28rem);color:var(--body)}
+.cap p.t b{color:var(--ink);font-weight:700}
+.data{display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;padding-top:1.4rem;border-top:1px solid var(--hair)}
+.data b{display:block;font-family:var(--fm);font-weight:700;font-size:clamp(1.5rem,2.8vw,2.3rem);color:var(--ink);letter-spacing:-.02em;line-height:1}
+.data .k{display:block;margin-top:.4rem}
+.sucs{display:flex;flex-wrap:wrap;gap:.5rem}
+.sucs span{font-family:var(--fm);font-size:.74rem;letter-spacing:.8px;text-transform:uppercase;border:1px solid var(--hair);padding:.42rem .7rem;border-radius:3px;color:var(--body)}
+.sucs span b{color:var(--am);font-weight:400;margin-right:.4rem}
+.maq{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.maq img{height:clamp(54px,7vw,96px);width:auto;filter:drop-shadow(0 12px 22px rgba(0,0,0,.6))}
+html.js .rv{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+html.js .cap.in .rv{opacity:1;transform:none}
+html.js .cap.in .rv:nth-child(2){transition-delay:.08s}html.js .cap.in .rv:nth-child(3){transition-delay:.16s}html.js .cap.in .rv:nth-child(4){transition-delay:.24s}html.js .cap.in .rv:nth-child(5){transition-delay:.3s}
+
+/* la ruta: mapa fijo a la derecha */
+.mapa{position:fixed;right:var(--gut);top:50%;transform:translateY(-50%);height:min(84svh,900px);width:var(--mapw);z-index:30;pointer-events:none}
+@media (max-width:899px){.mapa{right:10px;width:44px;height:78svh}}
+.mapa svg{width:100%;height:100%;overflow:visible}
+.mapa .ruta{fill:none;stroke:rgba(255,255,255,.16);stroke-width:1.2}
+.mapa .ruta-on{fill:none;stroke:var(--am);stroke-width:2;stroke-linecap:round;stroke-dasharray:var(--len,1000);stroke-dashoffset:var(--off,1000);transition:stroke-dashoffset .25s linear}
+.mapa circle{fill:#0E0E0E;stroke:rgba(255,255,255,.45);stroke-width:1.5;transition:fill .3s,stroke .3s,r .3s}
+.mapa .on circle{fill:var(--am);stroke:var(--am)}
+.mapa text{font-family:var(--fm);font-size:9px;letter-spacing:.6px;text-transform:uppercase;fill:var(--mute);opacity:0;transition:opacity .3s}
+.mapa .on text{opacity:1;fill:var(--ink)}
+@media (max-width:899px){.mapa text{display:none}}
+.mapa .km{font-family:var(--fm);font-size:10px;fill:var(--am);letter-spacing:1px;opacity:1}
+/* cabecera */
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gut);pointer-events:none}
+.hd>*{pointer-events:auto}.hd img{height:34px;width:auto}
+.hd .wa{font-family:var(--fm);font-size:.85rem;font-weight:700;color:var(--am)}
+@media (min-width:900px){.hd img{height:40px}}
+.hint{position:fixed;left:var(--gut);bottom:2.6vh;z-index:50;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);display:none;gap:.8rem;align-items:center}
+@media (min-width:900px){.hint{display:flex}}
+.hint i{display:block;width:1px;height:38px;background:var(--hair);position:relative;overflow:hidden}
+.hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--am);animation:drop 1.8s var(--ease) infinite}
+@keyframes drop{to{top:110%}}
+.cierre .in{align-content:center}
+.cierre .row{display:flex;flex-wrap:wrap;gap:1rem}
+.cierre .dir{display:grid;gap:.3rem;color:var(--mute);font-size:.95rem}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#000;padding-bottom:env(safe-area-inset-bottom)}
+.bar a{display:flex;align-items:center;justify-content:center;min-height:60px;font-family:var(--fd);font-weight:800}
+.bar .a{background:var(--am);color:#0E0E0E}.bar .w{background:#1F8F4E;color:#fff}
+@media (min-width:900px){.bar{display:none}}
+@media (max-width:899px){body{padding-bottom:var(--bar)}.cap:last-child{min-height:calc(100svh - var(--bar))}}
+@media (prefers-reduced-motion:reduce){.cap .foto img,.cap .foto video{transform:none;transition:none}.hint i::after{animation:none}html.js .rv{opacity:1;transform:none;transition:none}.mapa .ruta-on{transition:none}}
+</style>
+</head>
+<body>
+<header class="hd"><a href="#c0" aria-label="JCB Chile"><img src="img/marca/logo.png" alt="JCB" width="600" height="339"></a><a class="wa" href="https://wa.me/56971264247" target="_blank" rel="noopener">+56 9 7126 4247</a></header>
+<div class="hint" aria-hidden="true"><i></i>Baje · la ruta se dibuja</div>
+
+<aside class="mapa" aria-label="Ruta de sucursales">
+  <svg viewBox="-40 20 280 1000" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <path class="ruta" d="M142,44.6 L112,77.8 L113,196.5 L95,277.9 L106,383.5 L96,393.1 L95,434.1 L87,460 L83,470.9 L60,488.5 L68,550.6 L57,606.9 L60,630.7 L79,761.6 L102,996.3"/>
+    <path class="ruta-on" id="rutaOn" d="M142,44.6 L112,77.8 L113,196.5 L95,277.9 L106,383.5 L96,393.1 L95,434.1 L87,460 L83,470.9 L60,488.5 L68,550.6 L57,606.9 L60,630.7 L79,761.6 L102,996.3"/>
+    <g data-z="1"><circle cx="142" cy="44.6" r="4"/><text x="152" y="48">Calama</text></g>
+    <g data-z="1"><circle cx="112" cy="77.8" r="4"/><text x="122" y="81">Antofagasta</text></g>
+    <g data-z="1"><circle cx="113" cy="196.5" r="4"/><text x="123" y="200">Copiapó</text></g>
+    <g data-z="1"><circle cx="95" cy="277.9" r="4"/><text x="105" y="281">La Serena</text></g>
+    <g data-z="2"><circle cx="106" cy="383.5" r="4"/><text x="116" y="381">Quilicura</text></g>
+    <g data-z="2"><circle cx="96" cy="393.1" r="4"/><text x="106" y="403">Melipilla</text></g>
+    <g data-z="2"><circle cx="95" cy="434.1" r="4"/><text x="105" y="438">Curicó</text></g>
+    <g data-z="3"><circle cx="87" cy="460" r="4"/><text x="97" y="461">Linares</text></g>
+    <g data-z="3"><circle cx="83" cy="470.9" r="4"/><text x="93" y="480">Parral</text></g>
+    <g data-z="4"><circle cx="60" cy="488.5" r="4"/><text x="-30" y="492">Concepción</text></g>
+    <g data-z="4"><circle cx="68" cy="550.6" r="4"/><text x="78" y="554">Temuco</text></g>
+    <g data-z="4"><circle cx="57" cy="606.9" r="4"/><text x="67" y="610">Osorno</text></g>
+    <g data-z="4"><circle cx="60" cy="630.7" r="4"/><text x="70" y="640">Puerto Varas</text></g>
+    <g data-z="5"><circle cx="79" cy="761.6" r="4"/><text x="89" y="765">Coyhaique</text></g>
+    <g data-z="5"><circle cx="102" cy="996.3" r="4"/><text x="112" y="1000">Punta Arenas</text></g>
+    <text class="km" x="-30" y="1010" id="kmTxt">0 km</text>
+  </svg>
+</aside>
+
+<section class="cap" id="c0" data-z="0">
+  <div class="foto"><img src="img/eq/cargador.jpg" alt="Cargador frontal cargando un camión en el desierto" width="1920" height="1097" fetchpriority="high"><video data-amb autoplay muted loop playsinline preload="metadata" poster="img/eq/cargador.jpg" aria-hidden="true" tabindex="-1"><source src="video/cargador.mp4" type="video/mp4"></video></div>
+  <span class="num" aria-hidden="true">00</span>
+  <div class="in">
+    <span class="k rv">JCB en Chile · 15 sucursales · DercoMaq, Agrocampo y Recasur</span>
+    <h1 class="rv">De Antofagasta a <em>Punta Arenas.</em></h1>
+    <p class="t rv">3.295 kilómetros en línea recta entre la primera y la última sucursal. Quince puntos donde hay <b>repuestos, servicio técnico, arriendo y máquinas JCB</b> para la minería, la construcción, el agro y la energía.</p>
+    <div class="data rv"><div><b>3.295</b><span class="k g">km · Antofagasta → Punta Arenas</span></div><div><b>15</b><span class="k g">sucursales</span></div><div><b>39</b><span class="k g">máquinas publicadas</span></div><div><b id="hora">08:30:00</b><span class="k g">hora en Chile</span></div></div>
+  </div>
+</section>
+
+<section class="cap" id="c1" data-z="1">
+  <div class="foto"><img src="img/eq/generador.jpg" alt="Generador en un campamento minero de noche" width="1920" height="1097" loading="lazy"></div>
+  <span class="num" aria-hidden="true">01</span>
+  <div class="in">
+    <span class="k rv">01 · Norte grande · minería y energía</span>
+    <h2 class="rv">Donde la faena no se apaga</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Generadores de <b>20 a 545 kVA</b> en stand-by, torres de iluminación LTM9 y la retroexcavadora <b>3CX con kit minero</b>, disponibles en arriendo. Cuatro sucursales desde Calama hasta La Serena.</p>
+    <div class="maq rv"><img src="img/cat/gama-generadores.png" alt="Generador JCB"><img src="img/cat/gama-torres-de-iluminacion.png" alt="Torre de iluminación JCB"><img src="img/cat/gama-retroexcavadora.png" alt="Retroexcavadora JCB"></div>
+    <div class="sucs rv"><span><b>01</b>Calama · Sector Puerto Seco, sitio 42</span><span><b>02</b>Antofagasta · Megacentro, local 10 C</span><span><b>03</b>Copiapó · Panamericana Norte km 810</span><span><b>04</b>La Serena · Ruta D43, Bodega E54</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c2" data-z="2">
+  <div class="foto"><img src="img/eq/retro.jpg" alt="Retroexcavadora en una obra urbana de Santiago" width="1920" height="1097" loading="lazy"></div>
+  <span class="num" aria-hidden="true">02</span>
+  <div class="in">
+    <span class="k rv">02 · Zona central · construcción</span>
+    <h2 class="rv">La ciudad se construye en amarillo</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Retroexcavadoras <b>3CX Eco de 74 a 109 HP</b>, minicargadores 155, 215 y 270, miniexcavadora 65R y excavadoras de 13 a 22 toneladas. Quilicura, Melipilla y Curicó.</p>
+    <div class="maq rv"><img src="img/cat/gama-retroexcavadora.png" alt="Retroexcavadora JCB"><img src="img/cat/gama-minicargadores.png" alt="Minicargador JCB"><img src="img/cat/gama-excavadoras.png" alt="Excavadora JCB"></div>
+    <div class="sucs rv"><span><b>05</b>Quilicura · Américo Vespucio Norte 1838</span><span><b>06</b>Melipilla · Av. Vicuña Mackenna 455</span><span><b>07</b>Curicó · Longitudinal Sur km 194</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c3" data-z="3">
+  <div class="foto"><img src="img/eq/telehandler.jpg" alt="Manipulador telescópico en una bodega agrícola" width="1600" height="2057" loading="lazy" style="object-position:50% 40%"></div>
+  <span class="num" aria-hidden="true">03</span>
+  <div class="in">
+    <span class="k rv">03 · Maule · agro</span>
+    <h2 class="rv">El brazo largo del campo</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Manipuladores telescópicos de <b>7 a 14 metros</b>, entre ellos el 532-70 AGRI, y cargadores frontales de 2,7 a 3,5 m³. Dos sucursales Agrocampo en Linares y Parral.</p>
+    <div class="maq rv"><img src="img/cat/gama-manipuladores-telescopicos.png" alt="Manipulador telescópico JCB"><img src="img/cat/gama-cargadores-frontales.png" alt="Cargador frontal JCB"></div>
+    <div class="sucs rv"><span><b>08</b>Linares · Av. León Bustos, sitio 16</span><span><b>09</b>Parral · Ruta 5 Sur km 350</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c4" data-z="4">
+  <div class="foto"><img src="img/eq/rodillo.jpg" alt="Rodillo compactador sobre asfalto al amanecer" width="1920" height="1097" loading="lazy"></div>
+  <span class="num" aria-hidden="true">04</span>
+  <div class="in">
+    <span class="k rv">04 · Sur · caminos y obras</span>
+    <h2 class="rv">Cuatro sucursales, un solo estándar</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Rodillos compactadores <b>VM118 y CT260-120</b>, de 2,7 a 12 toneladas, y toda la gama de construcción con repuestos originales en cada punto. Concepción, Temuco, Osorno y Puerto Varas.</p>
+    <div class="maq rv"><img src="img/cat/gama-rodillos-compactadores.png" alt="Rodillo compactador JCB"><img src="img/cat/gama-miniexcavadora.png" alt="Miniexcavadora JCB"></div>
+    <div class="sucs rv"><span><b>10</b>Concepción · Ruta 150 km 6,3, Penco</span><span><b>11</b>Temuco · Longitudinal Sur 2680, Padre Las Casas</span><span><b>12</b>Osorno · Manuel Rodríguez 942</span><span><b>13</b>Puerto Varas · Ruta 5 Sur km 1007</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c5" data-z="5">
+  <div class="foto"><img src="img/eq/torre.jpg" alt="Torre de iluminación en una faena nocturna con niebla" width="1920" height="1097" loading="lazy"><video data-amb autoplay muted loop playsinline preload="metadata" poster="img/eq/torre.jpg" aria-hidden="true" tabindex="-1"><source src="video/torre.mp4" type="video/mp4"></video></div>
+  <span class="num" aria-hidden="true">05</span>
+  <div class="in">
+    <span class="k rv">05 · Austral · Recasur</span>
+    <h2 class="rv">Hasta el final del mapa</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Coyhaique y Punta Arenas cierran la red. Energía e iluminación para faenas remotas, y <b>LiveLink</b> para saber dónde está cada máquina y cuántas horas lleva, en tiempo real.</p>
+    <div class="maq rv"><img src="img/cat/gama-torres-de-iluminacion.png" alt="Torre de iluminación JCB"><img src="img/cat/gama-generadores.png" alt="Generador JCB"></div>
+    <div class="sucs rv"><span><b>14</b>Coyhaique · Baquedano 131</span><span><b>15</b>Punta Arenas · Av. Eduardo Frei 32</span></div>
+  </div>
+</section>
+
+<section class="cap cierre" id="c6" data-z="6">
+  <div class="foto"><img src="img/eq/sucursal.jpg" alt="" aria-hidden="true" width="1920" height="1097" loading="lazy"></div>
+  <span class="num" aria-hidden="true">06</span>
+  <div class="in">
+    <span class="k rv">Contacto</span>
+    <h2 class="rv">¿En qué kilómetro está su faena?</h2><!-- COPY PROPUESTO -->
+    <div class="row rv"><a class="btn btn-am" href="https://wa.me/56971264247?text=Hola%2C%20quiero%20cotizar%20una%20m%C3%A1quina%20JCB." target="_blank" rel="noopener">WhatsApp +56 9 7126 4247</a><a class="btn btn-o" href="https://www.jcb.cl/sucursales" target="_blank" rel="noopener">Ver sucursales</a></div>
+    <div class="dir rv"><span>JCB en Chile es comercializada por DercoMaq · 15 sucursales</span><span class="k g" style="margin-top:.5rem">Coordenadas y direcciones según jcb.cl</span></div>
+  </div>
+</section>
+
+<nav class="bar" aria-label="Acciones rápidas"><a class="a" href="#c6">Cotizar</a><a class="w" href="https://wa.me/56971264247" target="_blank" rel="noopener">WhatsApp</a></nav>
+
+<script>
+document.documentElement.classList.replace('nojs','js');
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var caps=[].slice.call(document.querySelectorAll('.cap')),dots=[].slice.call(document.querySelectorAll('.mapa g[data-z]'));
+  var ruta=document.getElementById('rutaOn'),len=ruta.getTotalLength();ruta.style.setProperty('--len',len);ruta.style.setProperty('--off',len);
+  var km=document.getElementById('kmTxt'),TOTAL=3295;
+  function zona(z){dots.forEach(function(d){d.classList.toggle('on',+d.dataset.z<=z&&z>0);});}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');zona(+e.target.dataset.z);}});},{threshold:.45});
+  caps.forEach(function(c){io.observe(c);});
+  // la ruta se dibuja con el avance real del scroll
+  function draw(){var p=Math.min(1,Math.max(0,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)));ruta.style.setProperty('--off',len*(1-p));km.textContent=Math.round(TOTAL*p).toLocaleString('es-CL')+' km';}
+  addEventListener('scroll',draw,{passive:true});addEventListener('resize',draw);draw();
+  // hora
+  var h=document.getElementById('hora');function tick(){var f=new Intl.DateTimeFormat('es-CL',{timeZone:'America/Santiago',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}),p={};f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});h.textContent=p.hour+':'+p.minute+':'+p.second;}
+  tick();setInterval(tick,1000);
+  // video ambiental
+  (function(){var vs=document.querySelectorAll('video[data-amb]'),off=rm||(navigator.connection&&navigator.connection.saveData);vs.forEach(function(v){if(off){v.remove();return;}v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});})();
+})();
+</script>
+</body>
+</html>

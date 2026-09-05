@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="nojs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>JCB CHILE · COTIZA</title>
+<meta name="description" content="Cotiza tu máquina JCB en Chile: elige gama, modelo, condición (nuevo, arriendo o usado) y sucursal, y envía por WhatsApp. 39 máquinas, 15 sucursales.">
+<meta name="theme-color" content="#FCAF26">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JCB Chile · Cotiza tu JCB hoy">
+<meta property="og:description" content="Un formulario que arma el mensaje solo: gama, modelo, condición y sucursal. Venta, arriendo y usados JCB.">
+<meta property="og:image" content="https://sebafigueroads.github.io/jcb/img/og-4.jpg">
+<meta property="og:locale" content="es_CL">
+<link rel="icon" href="img/marca/favicon-512.png">
+<link rel="apple-touch-icon" href="img/marca/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   JCB CHILE · COTIZA
+   100 % conversión sobre amarillo JCB. Sin menú. Un formulario que arma
+   el mensaje con datos reales del catálogo y de la red de sucursales.
+   ============================================================ */
+@font-face{font-family:"JCBEuro";src:url(fonts/jcb-regular.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"JCBEuro";src:url(fonts/jcb-extrabold.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"JCBEuro Cond";src:url(fonts/jcb-extrabold-cond.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Lato";src:url(fonts/lato-regular.woff2) format("woff2");font-weight:400;font-display:swap}
+:root{
+  --am:#FCAF26; --am-2:#E89E12; --ink:#1D1D1D; --ink-2:#2A2A2A; --papel:#F4F2ED; --hair-d:rgba(29,29,29,.18); --hair-l:rgba(255,255,255,.14); --mute-d:rgba(29,29,29,.62); --mute-l:rgba(255,255,255,.62); --ok:#1F8F4E;
+  --gut:clamp(18px,5vw,80px); --bar:calc(62px + env(safe-area-inset-bottom)); --ease:cubic-bezier(.16,.84,.28,1);
+  --fd:"JCBEuro",-apple-system,Arial,sans-serif; --fc:"JCBEuro Cond","JCBEuro",Arial Narrow,sans-serif; --ft:"Lato",-apple-system,Arial,sans-serif; --fm:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--ink);color:#fff;font-family:var(--ft);font-size:clamp(1rem,1.1vw,1.1rem);line-height:1.55;overflow-x:hidden;padding-bottom:var(--bar);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input,select{font:inherit}
+::selection{background:var(--ink);color:var(--am)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2.5px solid currentColor;outline-offset:3px}
+.k{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
+.wrap{padding-left:var(--gut);padding-right:var(--gut);max-width:1400px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:56px;padding:1rem 1.6rem;border-radius:6px;font-family:var(--fd);font-weight:800;font-size:1.02rem;border:1.5px solid transparent;cursor:pointer;transition:transform .2s var(--ease),background .2s;width:100%}
+.btn-w{background:var(--ok);color:#fff}.btn-w:hover{background:#187A42}
+.btn-am{background:var(--am);color:var(--ink)}.btn-am:hover{background:var(--am-2)}
+.btn-t{background:var(--ink);color:var(--am)}.btn-t:hover{background:#000}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html.js .rv{opacity:1;transform:none;transition:none}}
+
+/* amarillo: cabecera + hero */
+.top{background:var(--am);color:var(--ink);position:relative;overflow:hidden;isolation:isolate}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px var(--gut);border-bottom:1px solid var(--hair-d)}
+.hd img{height:34px;width:auto}
+.hd .r{display:flex;align-items:center;gap:1rem}
+.hd .tel{font-family:var(--fm);font-size:.86rem;font-weight:700;display:none}
+.hd .wa{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:#fff;border-radius:100px;padding:.55rem 1rem;font-family:var(--fd);font-weight:800;font-size:.86rem}
+@media (min-width:700px){.hd .tel{display:block}.hd img{height:40px}}
+.hero-letras{position:absolute;right:-6vw;bottom:-6vh;height:40vh;width:auto;opacity:.10;z-index:-1;pointer-events:none}
+.hero{padding:clamp(40px,6vw,90px) 0 clamp(48px,7vw,100px);display:grid;gap:2.4rem;position:relative}
+@media (min-width:1040px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,560px);align-items:start;gap:5vw}}
+.hero .k{display:inline-flex;align-items:center;gap:.7rem;color:var(--ink)}.hero .k::before{content:"";width:28px;height:2px;background:var(--ink)}
+h1{font-family:var(--fc);font-weight:800;text-transform:uppercase;line-height:.86;letter-spacing:0;color:var(--ink);font-size:clamp(3.2rem,11vw,10.8rem);text-wrap:balance;margin-top:1rem;max-width:10ch}
+.hero-sub{margin-top:1.4rem;max-width:48ch;font-size:clamp(1.02rem,1.4vw,1.25rem);color:rgba(29,29,29,.85)}
+.pruebas{margin-top:1.6rem;display:grid;gap:.7rem;list-style:none}
+.pruebas li{display:grid;grid-template-columns:22px 1fr;gap:.7rem;align-items:start;font-size:1rem;color:rgba(29,29,29,.9)}
+.pruebas li::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--ink);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='black'/%3E%3Cpath d='M7 12.5l3 3 7-7' stroke='white' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='black'/%3E%3Cpath d='M7 12.5l3 3 7-7' stroke='white' stroke-width='2.4' fill='none'/%3E%3C/svg%3E") center/contain no-repeat}
+.pruebas b{color:var(--ink);font-weight:700}
+.tira{margin-top:1.8rem;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.tira img{height:clamp(44px,5.4vw,72px);width:auto;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.mobile-cta{display:grid;margin-top:1.4rem}
+@media (min-width:1040px){.mobile-cta{display:none}}
+
+/* formulario */
+.q{background:var(--ink);color:#fff;border-radius:12px;padding:clamp(20px,2.6vw,30px);display:grid;gap:1rem;box-shadow:0 30px 80px -40px rgba(0,0,0,.6)}
+.q h2{font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:1.3rem;line-height:1}
+.q .s{color:var(--mute-l);font-size:.92rem;margin-top:-.5rem}
+.q label{display:grid;gap:.4rem}
+.q label span{font-family:var(--fm);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--mute-l)}
+.q input,.q select{background:var(--ink-2);border:1px solid var(--hair-l);color:#fff;border-radius:6px;padding:.9rem 1rem;min-height:52px;width:100%;font-size:1rem;appearance:none;-webkit-appearance:none}
+.q select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FCAF26' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;background-size:18px}
+.q select option{color:#000}
+.q input::placeholder{color:rgba(255,255,255,.38)}
+.q input:focus,.q select:focus{border-color:var(--am);outline:none}
+.q .two{display:grid;gap:.8rem}
+@media (min-width:480px){.q .two{grid-template-columns:1fr 1fr}}
+.cond{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.cond button{background:var(--ink-2);border:1px solid var(--hair-l);color:#fff;border-radius:6px;padding:.75rem .3rem;font-family:var(--fd);font-weight:800;min-height:46px;cursor:pointer;font-size:.9rem}
+.cond button[aria-pressed="true"]{background:var(--am);color:var(--ink);border-color:var(--am)}
+.prev{border-left:3px solid var(--am);padding:.7rem .9rem;background:rgba(255,255,255,.05);font-size:.88rem;color:var(--mute-l);line-height:1.5}
+.prev b{color:#fff;font-weight:600}
+.q .alt{text-align:center;font-size:.85rem;color:var(--mute-l)}
+.q .alt a{color:var(--am);font-weight:700}
+
+/* pasos + gamas + faq + cierre (todo negro) */
+.sec{padding:clamp(56px,7vw,110px) 0}
+h2.t{font-family:var(--fc);font-weight:800;text-transform:uppercase;letter-spacing:0;line-height:.9;font-size:clamp(2.2rem,5.6vw,5rem);color:#fff;text-wrap:balance}
+.sec .k{color:var(--am)}
+.steps{margin-top:2rem;display:grid;gap:1.4rem}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:3vw}}
+.steps div{border-top:2px solid var(--am);padding-top:1rem}
+.steps .n{font-family:var(--fm);font-weight:700;font-size:2rem;color:var(--am);line-height:1}
+.steps b{display:block;margin-top:.6rem;font-family:var(--fd);font-weight:800;font-size:1.2rem;line-height:1.15}
+.steps p{margin-top:.4rem;color:var(--mute-l);font-size:.98rem}
+.gamas{list-style:none;margin-top:2rem}
+.gamas li{display:grid;grid-template-columns:auto 1fr auto;gap:1rem 1.4rem;align-items:center;padding:.9rem 0;border-top:1px solid var(--hair-l);cursor:pointer}
+.gamas li:last-child{border-bottom:1px solid var(--hair-l)}
+.gamas img{width:clamp(72px,9vw,120px);height:auto;filter:drop-shadow(0 12px 22px rgba(0,0,0,.6))}
+.gamas b{display:block;font-family:var(--fd);font-weight:800;text-transform:uppercase;font-size:clamp(1.05rem,1.8vw,1.5rem)}
+.gamas small{display:block;font-family:var(--fm);font-size:.76rem;color:var(--mute-l);letter-spacing:.5px;margin-top:.2rem}
+.gamas .go{font-family:var(--fd);font-weight:800;font-size:.84rem;text-transform:uppercase;letter-spacing:.04em;color:var(--am);white-space:nowrap}
+@media (max-width:640px){.gamas li{grid-template-columns:auto 1fr}.gamas .go{grid-column:2}}
+.faq details{border-top:1px solid var(--hair-l)}
+.faq details:last-of-type{border-bottom:1px solid var(--hair-l)}
+.faq summary{list-style:none;cursor:pointer;padding:1.1rem 0;display:flex;justify-content:space-between;gap:1rem;font-family:var(--fd);font-weight:800;font-size:1.05rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--fm);color:var(--am);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 1.2rem;color:var(--mute-l);max-width:70ch}
+.fin{background:var(--am);color:var(--ink);padding:clamp(56px,8vw,110px) 0;position:relative;overflow:hidden}
+.fin-letras{position:absolute;right:-8vw;top:-6vh;height:46vh;opacity:.10;pointer-events:none}
+.fin h2{font-family:var(--fc);font-weight:800;text-transform:uppercase;line-height:.9;font-size:clamp(2.4rem,7vw,6.4rem);max-width:12ch;text-wrap:balance}
+.fin .row{display:grid;gap:.8rem;margin-top:1.8rem;max-width:560px}
+@media (min-width:560px){.fin .row{grid-template-columns:1fr 1fr}}
+.fin .dir{margin-top:1.6rem;color:var(--mute-d);display:grid;gap:.3rem;font-size:.95rem}
+.ft{padding:1.4rem var(--gut) 2rem;font-family:var(--fm);font-size:.72rem;letter-spacing:.8px;text-transform:uppercase;color:var(--mute-l);display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#000;padding-bottom:env(safe-area-inset-bottom)}
+.bar a{display:flex;align-items:center;justify-content:center;min-height:62px;font-family:var(--fd);font-weight:800}
+.bar .a{background:var(--am);color:var(--ink)}.bar .w{background:var(--ok);color:#fff}
+@media (min-width:1040px){.bar{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="top">
+  <header class="hd"><img src="img/marca/logo.png" alt="JCB" width="600" height="339"><div class="r"><a class="tel" href="https://wa.me/56971264247" target="_blank" rel="noopener">+56 9 7126 4247</a><a class="wa" href="https://wa.me/56971264247?text=Hola%2C%20quiero%20cotizar%20una%20m%C3%A1quina%20JCB." target="_blank" rel="noopener">WhatsApp</a></div></header>
+  <img class="hero-letras" src="img/marca/letras-tinta.png" alt="" aria-hidden="true">
+  <section class="wrap hero">
+    <div>
+      <span class="k rv">Venta · arriendo · usados · JCB en Chile</span>
+      <h1 class="rv">Cotiza tu JCB hoy.</h1><!-- COPY PROPUESTO -->
+      <p class="hero-sub rv">Elige la gama y el modelo, di si lo quieres <b>nuevo, en arriendo o usado</b>, y la sucursal que te queda cerca. El mensaje se arma solo y sale por WhatsApp.</p>
+      <ul class="pruebas rv">
+        <li><span><b>39 máquinas publicadas</b> en nueve gamas, 18 disponibles en arriendo.</span></li>
+        <li><span><b>15 sucursales</b> de Antofagasta a Punta Arenas; repuestos originales en 11 de ellas.</span></li>
+        <li><span><b>JCB LiveLink</b>: ubicación, horas y alertas de tu máquina en tiempo real.</span></li>
+      </ul>
+      <div class="tira rv" aria-hidden="true"><img src="img/cat/gama-retroexcavadora.png" alt=""><img src="img/cat/gama-excavadoras.png" alt=""><img src="img/cat/gama-manipuladores-telescopicos.png" alt=""><img src="img/cat/gama-generadores.png" alt=""></div>
+      <div class="mobile-cta rv"><a class="btn btn-t" href="#q">Ir al formulario ↓</a></div>
+    </div>
+    <form class="q rv" id="q" autocomplete="on" aria-labelledby="qt">
+      <h2 id="qt">Cotizar máquina</h2>
+      <p class="s">Sin registro. Respondemos desde la sucursal que elijas.</p>
+      <label><span>Gama *</span><select id="gama" required>
+        <option value="">Elige una gama…</option><option>Retroexcavadoras</option><option>Excavadoras</option><option>Miniexcavadoras</option><option>Cargadores frontales</option><option>Minicargadores</option><option>Manipuladores telescópicos</option><option>Rodillos compactadores</option><option>Generadores</option><option>Torres de iluminación</option></select></label>
+      <label><span>Modelo (opcional)</span><input id="modelo" list="modelos" type="text" placeholder="Ej: 3CX Eco 92HP, 220X LC, G116QS…" maxlength="60">
+        <datalist id="modelos"><option value="Retroexcavadora 3CX Eco 74HP MC"><option value="Retroexcavadora 3CX Eco 92HP MC"><option value="Retroexcavadora 3CX Eco 92HP SF MC"><option value="Retroexcavadora 3CX Eco 109HP BE MC"><option value="Retroexcavadora 3CX con Kit Minero"><option value="Retroexcavadora 1CX CAB"><option value="Excavadora 131X LC"><option value="Excavadora 220X LC"><option value="Excavadora 370X LC"><option value="Excavadora JS370LC"><option value="Excavadora JS130 LC AUTO"><option value="Excavadora Hydradig H110W"><option value="Excavadora EX305 usada 2022"><option value="Mini excavadora 65R"><option value="Cargador frontal 437ZX"><option value="Cargador Frontal 455ZX"><option value="Cargador Frontal 457 ZX"><option value="Minicargador 155 canopy"><option value="Minicargador 215 CAB AC"><option value="Minicargador 270"><option value="Manipulador Telescópico 531-70 74HP"><option value="Manipulador Telescópico 532-70 AGRI"><option value="Manipulador Telescópico 533 105 T"><option value="Manipulador telescópico 540-170"><option value="Manipulador Telescópico 558P-210R"><option value="Manipulador telescópico 560-80"><option value="Rodillo compactador VM118"><option value="Rodillo compactador CT260-120"><option value="Generador G20QS"><option value="Generador G41QS"><option value="Generador G66QS"><option value="Generador G91QS"><option value="Generador G116QS"><option value="Generador G141QS"><option value="Generador G166QS"><option value="Generador G221QS"><option value="Generador G401QX"><option value="Generador G551QX"><option value="Torre de iluminación LTM9"><option value="Torre de iluminación LT M9 usada 2022"></datalist></label>
+      <div><span class="k" style="display:block;color:var(--mute-l);margin-bottom:.45rem;font-size:10.5px;letter-spacing:1.2px">Condición</span>
+        <div class="cond" role="group" aria-label="Condición"><button type="button" data-c="Nuevo" aria-pressed="true">Nuevo</button><button type="button" data-c="Arriendo" aria-pressed="false">Arriendo</button><button type="button" data-c="Usado" aria-pressed="false">Usado</button></div></div>
+      <label><span>Sucursal más cercana</span><select id="suc"><option value="">Elige una sucursal…</option><option>Antofagasta</option><option>Calama</option><option>Copiapó</option><option>La Serena</option><option>Quilicura (Santiago)</option><option>Melipilla</option><option>Curicó</option><option>Linares</option><option>Parral</option><option>Concepción</option><option>Temuco</option><option>Osorno</option><option>Puerto Varas</option><option>Coyhaique</option><option>Punta Arenas</option></select></label>
+      <div class="two"><label><span>Nombre</span><input id="nom" type="text" placeholder="Nombre y apellido" maxlength="60" autocomplete="name"></label><label><span>Empresa / faena</span><input id="emp" type="text" placeholder="Empresa o faena" maxlength="60" autocomplete="organization"></label></div>
+      <div class="prev" id="prev" aria-live="polite">Tu mensaje: <b>Hola, quiero cotizar una máquina JCB.</b></div>
+      <a class="btn btn-w" id="wa" href="https://wa.me/56971264247?text=Hola%2C%20quiero%20cotizar%20una%20m%C3%A1quina%20JCB." target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      <a class="btn btn-am" id="fm" href="https://www.jcb.cl/ayuda/contacto" target="_blank" rel="noopener">Prefiero el formulario de jcb.cl</a>
+      <p class="alt">O escribe directo al <a href="https://wa.me/56971264247" target="_blank" rel="noopener">+56 9 7126 4247</a></p>
+    </form>
+  </section>
+</div>
+
+<section class="sec wrap"><span class="k rv">Cómo funciona</span><h2 class="t rv" style="margin-top:.6rem">Tres pasos, una máquina.</h2><!-- COPY PROPUESTO -->
+  <div class="steps rv"><div><span class="n">01</span><b>Eliges gama y condición</b><p>Nueva, en arriendo o usada. Si sabes el modelo, mejor; si no, con la gama basta.</p></div><div><span class="n">02</span><b>Te responde tu sucursal</b><p>La más cercana a tu faena, con stock, plazos y repuestos originales donde corresponda.</p></div><div><span class="n">03</span><b>Entrega y respaldo</b><p>Servicio técnico, planes de mantención y LiveLink para seguir la máquina en tiempo real.</p></div></div>
+</section>
+
+<section class="sec wrap" style="padding-top:0"><span class="k rv">Nueve gamas</span><h2 class="t rv" style="margin-top:.6rem">Toca una y se carga en el formulario</h2>
+  <ul class="gamas rv" id="gamas">
+    <li data-g="Retroexcavadoras"><img src="img/cat/gama-retroexcavadora.png" alt=""><div><b>Retroexcavadoras</b><small>50 a 100 HP · 3CX Eco · 1CX · kit minero</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Excavadoras"><img src="img/cat/gama-excavadoras.png" alt=""><div><b>Excavadoras</b><small>13 a 22 ton · 131X · 220X · 370X</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Miniexcavadoras"><img src="img/cat/gama-miniexcavadora.png" alt=""><div><b>Miniexcavadoras</b><small>1,9 a 6,5 ton · 65R</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Cargadores frontales"><img src="img/cat/gama-cargadores-frontales.png" alt=""><div><b>Cargadores frontales</b><small>2,7 a 3,5 m³ · 437ZX · 455ZX · 457ZX</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Minicargadores"><img src="img/cat/gama-minicargadores.png" alt=""><div><b>Minicargadores</b><small>700 a 1.200 kg · 155 · 215 · 270</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Manipuladores telescópicos"><img src="img/cat/gama-manipuladores-telescopicos.png" alt=""><div><b>Manipuladores telescópicos</b><small>7 a 14 m · 531 a 560</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Rodillos compactadores"><img src="img/cat/gama-rodillos-compactadores.png" alt=""><div><b>Rodillos compactadores</b><small>2,7 a 12 ton · VM118 · CT260-120</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Generadores"><img src="img/cat/gama-generadores.png" alt=""><div><b>Generadores</b><small>20 a 545 kVA · G20QS a G551QX</small></div><span class="go">Cotizar →</span></li>
+    <li data-g="Torres de iluminación"><img src="img/cat/gama-torres-de-iluminacion.png" alt=""><div><b>Torres de iluminación</b><small>LTM9 · venta y arriendo</small></div><span class="go">Cotizar →</span></li>
+  </ul>
+</section>
+
+<section class="sec wrap faq" style="padding-top:0"><span class="k rv">Preguntas frecuentes</span><h2 class="t rv" style="margin-top:.6rem;margin-bottom:1.6rem">Antes de escribir</h2>
+  <div class="rv">
+    <details><summary>¿Arriendan máquinas?</summary><p>Sí. 18 de las 39 máquinas publicadas están disponibles en arriendo: excavadoras 220X y 370X, cargadores 455ZX y 457ZX, nueve generadores de 41 a 551 kVA, el manipulador 533-105, la 3CX con kit minero y la torre LTM9.</p></details>
+    <details><summary>¿Venden usados?</summary><p>Sí. Hoy hay publicadas una excavadora EX305 del 2022 y una torre de iluminación LT M9 del 2022. Los usados van cambiando; pregunta por la gama que necesitas.</p></details>
+    <details><summary>¿Dónde retiro repuestos?</summary><p>Repuestos originales JCB en 11 de las 15 sucursales, y solicitud en línea para el resto del país.</p></details>
+    <details><summary>¿Qué es LiveLink?</summary><p>El sistema de JCB para administrar máquinas de forma remota: horas de máquina y flota, ubicación en tiempo real, historial, nivel de combustible según modelo, alertas críticas y de perímetro, e informes por e-mail diarios, semanales o mensuales.</p></details>
+    <details><summary>¿Quién está detrás de JCB en Chile?</summary><p>DercoMaq comercializa JCB en Chile, con sucursales propias y las de Agrocampo (Linares y Parral) y Recasur (Coyhaique y Punta Arenas).</p></details>
+  </div>
+</section>
+
+<section class="fin"><img class="fin-letras" src="img/marca/letras-tinta.png" alt="" aria-hidden="true"><div class="wrap">
+  <span class="k rv">15 sucursales · Antofagasta a Punta Arenas</span>
+  <h2 class="rv" style="margin-top:.8rem">¿Qué máquina necesita tu faena?</h2><!-- COPY PROPUESTO -->
+  <div class="row rv"><a class="btn btn-t" href="#q">Volver al formulario</a><a class="btn btn-w" href="https://wa.me/56971264247?text=Hola%2C%20quiero%20cotizar%20una%20m%C3%A1quina%20JCB." target="_blank" rel="noopener">WhatsApp directo</a></div>
+  <div class="dir rv"><span>JCB en Chile es comercializada por DercoMaq</span><span>@jcbchile · @DercoMaqJCB</span></div>
+</div></section>
+<footer class="ft"><span>JCB Chile · DercoMaq</span><span>Catálogo y sucursales según jcb.cl</span></footer>
+<nav class="bar" aria-label="Acciones rápidas"><a class="a" href="#q">Cotizar</a><a class="w" href="https://wa.me/56971264247" target="_blank" rel="noopener">WhatsApp</a></nav>
+
+<script>
+document.documentElement.classList.replace('nojs','js');
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:.06});els.forEach(function(el){io.observe(el);});
+    requestAnimationFrame(function(){els.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight*.98)el.classList.add('in');});});
+    addEventListener('scroll',function(){for(var i=0;i<els.length;i++){var el=els[i];if(!el.classList.contains('in')){var r=el.getBoundingClientRect();if(r.top<innerHeight*.94&&r.bottom>0)el.classList.add('in');}}},{passive:true});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+  var g=document.getElementById('gama'),m=document.getElementById('modelo'),s=document.getElementById('suc'),n=document.getElementById('nom'),e=document.getElementById('emp'),prev=document.getElementById('prev'),wa=document.getElementById('wa'),cond='Nuevo';
+  function msg(){var t='Hola, quiero cotizar';t+=m.value.trim()?(' '+m.value.trim()):(g.value?(' una máquina de la gama '+g.value):' una máquina JCB');t+=' · Condición: '+cond+'.';if(s.value)t+=' Sucursal: '+s.value+'.';var q=[n.value.trim(),e.value.trim()].filter(Boolean).join(', ');if(q)t+=' Soy '+q+'.';return t;}
+  function upd(){var t=msg();prev.textContent='Tu mensaje: ';var b=document.createElement('b');b.textContent=t;prev.appendChild(b);wa.href='https://wa.me/56971264247?text='+encodeURIComponent(t);}
+  [g,m,s,n,e].forEach(function(i){i.addEventListener('input',upd);i.addEventListener('change',upd);});
+  [].forEach.call(document.querySelectorAll('.cond button'),function(b){b.addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.cond button'),function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');cond=b.dataset.c;upd();});});
+  [].forEach.call(document.querySelectorAll('#gamas li'),function(li){li.addEventListener('click',function(){g.value=li.dataset.g;upd();document.getElementById('q').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'});setTimeout(function(){m.focus();},420);});});
+  document.getElementById('q').addEventListener('submit',function(ev){ev.preventDefault();if(!g.value){g.focus();return;}wa.click();});
+})();
+</script>
+</body>
+</html>
