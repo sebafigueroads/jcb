@@ -298,6 +298,7 @@ document.documentElement.classList.replace('nojs','js');
     els.forEach(function(el){io.observe(el);});
     requestAnimationFrame(function(){els.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight*.98)el.classList.add('in');});});
     addEventListener('scroll',function(){for(var i=0;i<els.length;i++){var el=els[i];if(!el.classList.contains('in')){var r=el.getBoundingClientRect();if(r.top<innerHeight*.94&&r.bottom>0)el.classList.add('in');}}},{passive:true});
+    setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},2500);
   }else{els.forEach(function(el){el.classList.add('in');});}
   // manifiesto
   (function(){var m=document.querySelector('.mani');if(!m)return;var ws=[].slice.call(m.querySelectorAll('.w')),rule=m.querySelector('.rule');

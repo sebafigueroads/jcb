@@ -57,7 +57,7 @@ html.js .rv.in{opacity:1;transform:none}
 .hd .wa{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:#fff;border-radius:100px;padding:.55rem 1rem;font-family:var(--fd);font-weight:800;font-size:.86rem}
 @media (min-width:700px){.hd .tel{display:block}.hd img{height:40px}}
 .hero-letras{position:absolute;right:-6vw;bottom:-6vh;height:40vh;width:auto;opacity:.10;z-index:-1;pointer-events:none}
-.hero{padding:clamp(40px,6vw,90px) 0 clamp(48px,7vw,100px);display:grid;gap:2.4rem;position:relative}
+.hero{padding-top:clamp(40px,6vw,90px);padding-bottom:clamp(48px,7vw,100px);display:grid;gap:2.4rem;position:relative}
 @media (min-width:1040px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,560px);align-items:start;gap:5vw}}
 .hero .k{display:inline-flex;align-items:center;gap:.7rem;color:var(--ink)}.hero .k::before{content:"";width:28px;height:2px;background:var(--ink)}
 h1{font-family:var(--fc);font-weight:800;text-transform:uppercase;line-height:.86;letter-spacing:0;color:var(--ink);font-size:clamp(3.2rem,11vw,10.8rem);text-wrap:balance;margin-top:1rem;max-width:10ch}
@@ -210,6 +210,7 @@ document.documentElement.classList.replace('nojs','js');
   if('IntersectionObserver' in window && !rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:.06});els.forEach(function(el){io.observe(el);});
     requestAnimationFrame(function(){els.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight*.98)el.classList.add('in');});});
     addEventListener('scroll',function(){for(var i=0;i<els.length;i++){var el=els[i];if(!el.classList.contains('in')){var r=el.getBoundingClientRect();if(r.top<innerHeight*.94&&r.bottom>0)el.classList.add('in');}}},{passive:true});
+    setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},2500);
   }else{els.forEach(function(el){el.classList.add('in');});}
   var g=document.getElementById('gama'),m=document.getElementById('modelo'),s=document.getElementById('suc'),n=document.getElementById('nom'),e=document.getElementById('emp'),prev=document.getElementById('prev'),wa=document.getElementById('wa'),cond='Nuevo';
   function msg(){var t='Hola, quiero cotizar';t+=m.value.trim()?(' '+m.value.trim()):(g.value?(' una máquina de la gama '+g.value):' una máquina JCB');t+=' · Condición: '+cond+'.';if(s.value)t+=' Sucursal: '+s.value+'.';var q=[n.value.trim(),e.value.trim()].filter(Boolean).join(', ');if(q)t+=' Soy '+q+'.';return t;}

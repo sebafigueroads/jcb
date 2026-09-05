@@ -85,7 +85,7 @@ h1 em{font-style:normal;background:linear-gradient(transparent 60%,var(--am) 60%
 .filtros .cnt{margin-left:auto;font-family:var(--fm);font-size:.78rem;color:var(--mute);letter-spacing:.5px}
 
 /* catálogo: capítulos por gama, cada modelo una fila editorial (sin cuadrícula) */
-.cat{padding:clamp(56px,7vw,110px) 0 0}
+.cat{padding-top:clamp(56px,7vw,110px)}
 .gama{padding:clamp(28px,4vw,56px) 0;border-top:2px solid var(--ink)}
 .gama[hidden]{display:none}
 .gama-h{display:grid;gap:.6rem 2rem;align-items:end;margin-bottom:1.4rem}
@@ -271,6 +271,7 @@ document.documentElement.classList.replace('nojs','js');
   if('IntersectionObserver' in window && !rm){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:.06});els.forEach(function(el){io.observe(el);});
     requestAnimationFrame(function(){els.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight*.98)el.classList.add('in');});});
     addEventListener('scroll',function(){for(var i=0;i<els.length;i++){var el=els[i];if(!el.classList.contains('in')){var r=el.getBoundingClientRect();if(r.top<innerHeight*.94&&r.bottom>0)el.classList.add('in');}}},{passive:true});
+    setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},2500);
   }else{els.forEach(function(el){el.classList.add('in');});}
   var c=document.getElementById('cnt'),to=+c.dataset.to,done=false;
   function run(){if(done)return;done=true;if(rm){c.textContent=to;return;}var s=performance.now(),d=1400;(function f(t){var p=Math.min(1,(t-s)/d);p=1-Math.pow(1-p,3);c.textContent=Math.round(to*p);if(p<1)requestAnimationFrame(f);})(s);}
