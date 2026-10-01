@@ -98,6 +98,41 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
 .cta .dgl{position:absolute;right:var(--gut);bottom:clamp(56px,7vw,100px);height:44px;width:auto;opacity:.9}
 @media (max-width:760px){.cta .dgl{position:static;margin-top:1rem;height:36px}}
 .ft{padding:0 var(--gut) 5vh;font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.8px;text-transform:uppercase;color:var(--mute);display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between}
+
+/* showcase DercoMaq: acordeón de reels en escritorio, carrusel en móvil */
+.sc{padding:clamp(72px,10vw,150px) 0 0}
+.sc .sec-h{padding-top:0}
+.sc h2 em{font-style:normal;color:var(--am)}
+.sc .lead b{color:var(--ink)}
+.sc-escena{margin-top:clamp(28px,4vw,56px);display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--gut) 1rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-padding:0 var(--gut)}
+.sc-escena::-webkit-scrollbar{display:none}
+.reel{position:relative;flex:0 0 min(72vw,340px);aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:#000;scroll-snap-align:center;isolation:isolate;cursor:pointer}
+.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.reel figcaption{position:absolute;left:0;right:0;bottom:0;padding:3.2rem 1rem 1.1rem;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.78) 55%);display:grid;gap:.15rem;z-index:2;pointer-events:none}
+.reel .n{font-family:"JCBEuro",Arial,sans-serif;font-weight:800;font-size:2rem;line-height:1;color:var(--am)}
+.reel b{font-family:"JCBEuro",Arial,sans-serif;font-weight:800;color:var(--ink);font-size:1.02rem;line-height:1.15}
+.reel i{font-style:normal;color:var(--body);font-size:.92rem;line-height:1.3}
+.reel .m{margin-top:.35rem;font-size:.74rem;letter-spacing:.6px;text-transform:uppercase;color:var(--mute)}
+.reel .son{position:absolute;top:10px;right:10px;z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(17,17,17,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.reel .son svg{width:20px;height:20px;display:block}
+.reel .son .on{display:none}.reel .son[aria-pressed="true"] .on{display:block}.reel .son[aria-pressed="true"] .off{display:none}
+.reel .son[aria-pressed="true"]{background:var(--am);color:#111;border-color:var(--am)}
+.reel .son:focus-visible{outline:2px solid var(--am);outline-offset:2px}
+.reel .barra{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.14);z-index:3}
+.reel .barra span{display:block;height:100%;width:100%;background:var(--am);transform:scaleX(0);transform-origin:left}
+.sc-pie{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;align-items:baseline;padding:.2rem var(--gut) 0;color:var(--mute);font-size:.86rem}
+.sc-cont{font-family:"JCBEuro",Arial,sans-serif;font-weight:800;color:var(--ink);letter-spacing:.5px}
+@media (min-width:1000px){
+  .sc-escena{overflow:visible;scroll-snap-type:none;height:min(66vh,620px);gap:12px}
+  .reel{flex:1 1 0;min-width:0;aspect-ratio:auto;height:100%;transition:flex-basis .7s var(--ease),flex-grow .7s var(--ease),filter .5s}
+  .reel.on{flex:0 0 calc(min(66vh,620px)*9/16)}
+  .sc-escena:hover .reel:not(.on),.reel:not(.on){filter:saturate(.75) brightness(.72)}
+  .reel:not(.on) figcaption i,.reel:not(.on) figcaption .m{opacity:0;transition:opacity .3s}
+  .reel.on figcaption i,.reel.on figcaption .m{opacity:1;transition:opacity .5s .25s}
+  .reel:not(.on) b{font-size:.9rem}
+  .sc-cont{display:none}
+}
+@media (prefers-reduced-motion:reduce){.reel{transition:none!important}}
 </style>
 </head>
 <body>
@@ -112,7 +147,7 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
   <div>
     <span class="k">Digitals para JCB Chile y DercoMaq · cuatro direcciones · una marca</span>
     <h1 class="fc">JCB merece una web tan <em>sólida como sus máquinas.</em></h1>
-    <p>Cuatro páginas completas y genuinamente distintas para JCB Chile y DercoMaq, que comercializa JCB en el país, construidas con el amarillo y el negro de la marca, sus tipografías JCBEuro y su contenido real: <b>40 máquinas publicadas</b> en nueve gamas con sus fotos de catálogo, 18 en arriendo, <b>15 sucursales</b> con coordenadas, LiveLink y la historia desde 1945. Dos de marca, una inmersiva y una de conversión pura. Y más abajo, una muestra de lo que podemos crear en video.</p>
+    <p>Cuatro páginas completas y genuinamente distintas para JCB Chile y DercoMaq, que comercializa JCB en el país, construidas con el amarillo y el negro de la marca, sus tipografías JCBEuro y su contenido real: <b>40 máquinas publicadas</b> en nueve gamas con sus fotos de catálogo, 18 en arriendo, <b>15 sucursales</b> con coordenadas, LiveLink y la historia desde 1945. Dos de marca, una inmersiva y una de conversión pura. Y más abajo, una muestra y un showcase de lo que podemos crear en video.</p>
     <div class="fila"><span>Mobile-first · 390 px</span><span>Letras JCB a escala monumental</span><span>Fotos y video propios</span><span>Datos vivos verdaderos</span></div>
   </div>
 </section>
@@ -139,7 +174,44 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
     <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-torre.jpg"><source src="video/torre.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Torre de iluminación en la niebla</b></figcaption></figure>
   </div>
   <p class="hint">← deslice →</p>
-  <p class="nota"><b>Sobre las imágenes y el video:</b> las doce fotografías de faena y los cinco videos son piezas propias generadas por Digitals para JCB Chile en su paleta. Los recortes de máquinas son las fotos de catálogo que jcb.cl publica. Los datos, todos de jcb.cl.</p>
+  <p class="nota"><b>Sobre las imágenes y el video:</b> las doce fotografías de faena y los diez videos (los cinco de esta muestra y los cinco del showcase DercoMaq) son piezas propias generadas por Digitals para JCB Chile en su paleta. Los recortes de máquinas son las fotos de catálogo que jcb.cl publica. Los datos, todos de jcb.cl.</p>
+</section>
+
+<section class="sc" id="showcase" aria-label="Showcase de video DercoMaq">
+  <div class="sec-h"><span class="k">03 · Showcase DercoMaq</span><h2 class="fc">Toda la línea, <em>con nivel de cine.</em></h2><p class="lead">Cinco reels que <b>Digitals</b> produjo con IA para DercoMaq, sin rodaje: telescópicos JCB, un elevador de mástil y un tractor. Así podemos mostrar cualquier máquina del catálogo, de JCB a Massey Ferguson o Hangcha. Active el sonido en el que quiera.</p></div>
+  <div class="sc-escena" id="scEscena">
+    <figure class="reel on" data-i="0">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-telescopico-roca-588048f7.jpg" aria-label="Telescópico JCB: Sale de la roca"><source src="video/dmq/telescopico-roca-588048f7.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de telescópico jcb: sale de la roca"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">01</span><b>Telescópico JCB</b><i>Sale de la roca</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+    <figure class="reel" data-i="1">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-telescopico-alcance-aa3fc2be.jpg" aria-label="Telescópico JCB: El alcance, con datos sobre la imagen"><source src="video/dmq/telescopico-alcance-aa3fc2be.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de telescópico jcb: el alcance, con datos sobre la imagen"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">02</span><b>Telescópico JCB</b><i>El alcance, con datos sobre la imagen</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+    <figure class="reel" data-i="2">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-elevador-obra-1489598e.jpg" aria-label="Elevador de mástil: Obra gruesa y trazos de luz"><source src="video/dmq/elevador-obra-1489598e.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de elevador de mástil: obra gruesa y trazos de luz"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">03</span><b>Elevador de mástil</b><i>Obra gruesa y trazos de luz</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+    <figure class="reel" data-i="3">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-elevador-piezas-7f61a421.jpg" aria-label="Elevador de mástil: Armado pieza por pieza"><source src="video/dmq/elevador-piezas-7f61a421.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de elevador de mástil: armado pieza por pieza"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">04</span><b>Elevador de mástil</b><i>Armado pieza por pieza</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+    <figure class="reel" data-i="4">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-tractor-estudio-d9956df9.jpg" aria-label="Tractor: Estudio, polvo y luz roja"><source src="video/dmq/tractor-estudio-d9956df9.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de tractor: estudio, polvo y luz roja"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">05</span><b>Tractor</b><i>Estudio, polvo y luz roja</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+  </div>
+  <div class="sc-pie"><span class="sc-cont" id="scCont" aria-live="polite">01 / 05</span><span class="sc-ayuda">Toque un reel para pausar · el parlante activa el sonido</span></div>
 </section>
 
 <section class="cta" id="conversemos">
@@ -160,6 +232,40 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
   [].forEach.call(document.querySelectorAll('video[data-tap]'),function(v){v.addEventListener('click',function(){v.paused?v.play():v.pause();});});
   if('IntersectionObserver' in window&&!off){var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:.2});
     [].forEach.call(document.querySelectorAll('video[data-tap]'),function(v){io.observe(v);});}
+})();
+</script>
+
+<script>
+/* showcase DercoMaq: en escritorio el reel activo se abre (el resto queda como franja); en móvil se desliza y suena sólo el que está al centro */
+(function(){
+  var esc=document.getElementById('scEscena');if(!esc)return;
+  var R=[].slice.call(esc.querySelectorAll('.reel')),cont=document.getElementById('scCont');
+  var ancho=matchMedia('(min-width:1000px)'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches,ahorro=navigator.connection&&navigator.connection.saveData;
+  var visible=false,activo=0,conSon=-1;
+  function vid(i){return R[i].querySelector('video');}
+  function toca(v){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  function marca(i){activo=i;R.forEach(function(r,k){r.classList.toggle('on',k===i);});if(cont)cont.textContent=String(i+1).padStart(2,'0')+' / '+String(R.length).padStart(2,'0');}
+  // qué se reproduce: en escritorio, todos mientras la sección está a la vista; en móvil, sólo el del centro
+  function decide(){R.forEach(function(r,k){var v=vid(k),va=visible&&!r._pausa&&(ancho.matches?true:k===activo);
+    if(rm||ahorro)va=va&&(k===conSon||r._pidio);
+    if(va){if(v.preload!=='auto')v.preload='auto';if(v.paused)toca(v);}else if(!v.paused)v.pause();});}
+  function sonido(i,on){R.forEach(function(r,k){var v=vid(k),b=r.querySelector('.son'),s=on&&k===i;v.muted=!s;b.setAttribute('aria-pressed',s?'true':'false');});conSon=on?i:-1;}
+  R.forEach(function(r,i){var v=vid(i),b=r.querySelector('.son'),barra=r.querySelector('.barra span');
+    b.addEventListener('click',function(e){e.stopPropagation();var on=conSon!==i;r._pausa=false;r._pidio=true;marca(i);sonido(i,on);if(on){v.preload='auto';toca(v);}decide();
+      if(!ancho.matches)r.scrollIntoView({behavior:rm?'auto':'smooth',block:'nearest',inline:'center'});});
+    r.addEventListener('click',function(){if(ancho.matches&&activo!==i){marca(i);r._pausa=false;decide();return;}r._pidio=true;if(v.paused){r._pausa=false;v.preload='auto';toca(v);}else{r._pausa=true;v.pause();}});
+    r.addEventListener('mouseenter',function(){if(ancho.matches&&activo!==i){marca(i);decide();}});
+    v.addEventListener('timeupdate',function(){if(v.duration)barra.style.transform='scaleX('+(v.currentTime/v.duration).toFixed(3)+')';});
+  });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(!visible&&conSon>=0)sonido(conSon,false);decide();},{threshold:.25}).observe(esc);
+    // en móvil, el reel que queda al centro pasa a ser el activo (y si sonaba otro, se calla)
+    var io=new IntersectionObserver(function(es){if(ancho.matches)return;es.forEach(function(e){if(e.isIntersecting){var i=R.indexOf(e.target);if(i!==activo){if(conSon>=0&&conSon!==i)sonido(conSon,false);marca(i);decide();}}});},{root:esc,threshold:.6});
+    R.forEach(function(r){io.observe(r);});
+  }else{visible=true;decide();}
+  ancho.addEventListener&&ancho.addEventListener('change',decide);
+  document.addEventListener('visibilitychange',function(){if(document.hidden)R.forEach(function(r,k){vid(k).pause();});else decide();});
+  marca(0);
 })();
 </script>
 </body>
