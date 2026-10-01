@@ -120,6 +120,12 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
 .reel .son:focus-visible{outline:2px solid var(--am);outline-offset:2px}
 .reel .barra{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.14);z-index:3}
 .reel .barra span{display:block;height:100%;width:100%;background:var(--am);transform:scaleX(0);transform-origin:left}
+.sc-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem;padding:clamp(28px,4vw,52px) var(--gut) 0;margin-bottom:-12px}
+.sc-t b{font-family:"JCBEuro",Arial,sans-serif;font-weight:800;color:var(--ink);font-size:1.05rem;text-transform:uppercase;letter-spacing:.5px}
+.sc-t span{color:var(--mute);font-size:.9rem}
+.sc .tira{margin-top:clamp(20px,2.4vw,32px)}
+@media (min-width:1000px){.sc .tira{overflow:visible;scroll-snap-type:none;gap:12px}.sc .tira .pieza.h{flex:1 1 0;min-width:0;height:auto;aspect-ratio:16/9}.sc .hint{display:none}}
+.sc .sc-escena{margin-top:clamp(20px,2.4vw,32px)}
 .sc-pie{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;align-items:baseline;padding:.2rem var(--gut) 0;color:var(--mute);font-size:.86rem}
 .sc-cont{font-family:"JCBEuro",Arial,sans-serif;font-weight:800;color:var(--ink);letter-spacing:.5px}
 @media (min-width:1000px){
@@ -147,7 +153,7 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
   <div>
     <span class="k">Digitals para JCB Chile y DercoMaq · cuatro direcciones · una marca</span>
     <h1 class="fc">JCB merece una web tan <em>sólida como sus máquinas.</em></h1>
-    <p>Cuatro páginas completas y genuinamente distintas para JCB Chile y DercoMaq, que comercializa JCB en el país, construidas con el amarillo y el negro de la marca, sus tipografías JCBEuro y su contenido real: <b>40 máquinas publicadas</b> en nueve gamas con sus fotos de catálogo, 18 en arriendo, <b>15 sucursales</b> con coordenadas, LiveLink y la historia desde 1945. Dos de marca, una inmersiva y una de conversión pura. Y más abajo, una muestra y un showcase de lo que podemos crear en video.</p>
+    <p>Cuatro páginas completas y genuinamente distintas para JCB Chile y DercoMaq, que comercializa JCB en el país, construidas con el amarillo y el negro de la marca, sus tipografías JCBEuro y su contenido real: <b>40 máquinas publicadas</b> en nueve gamas con sus fotos de catálogo, 18 en arriendo, <b>15 sucursales</b> con coordenadas, LiveLink y la historia desde 1945. Dos de marca, una inmersiva y una de conversión pura. Y más abajo, una muestra de lo que podemos crear en video.</p>
     <div class="fila"><span>Mobile-first · 390 px</span><span>Letras JCB a escala monumental</span><span>Fotos y video propios</span><span>Datos vivos verdaderos</span></div>
   </div>
 </section>
@@ -164,21 +170,9 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
     <div class="in"><span class="n">04<i>100 % conversión</i></span><h3 class="fc">«Cotiza»</h3><p class="h">Amarillo pleno, sin menú: un formulario que arma el mensaje solo.</p><p>Gama, modelo (los 39 reales en el autocompletado), condición y sucursal más cercana; sale por WhatsApp. Tres pasos, las nueve gamas que se cargan al tocarlas, cinco preguntas frecuentes con respuestas ancladas a jcb.cl.</p><div class="t"><span>Formulario primero</span><span>Datalist real</span><span>FAQ</span></div><span class="go">Ver landing →</span></div></a>
 </section>
 
-<section class="muestra" id="muestra">
-  <div class="sec-h"><span class="k">02 · Muestra de contenido</span><h2 class="fc">Lo que podemos crear para JCB</h2><p class="lead">Cinco piezas de video hechas por <b>Digitals</b> para esta propuesta: tres loops horizontales para los heros de la web y dos reels verticales de 12 segundos para redes. Máquinas JCB en faena, contadas como se merecen. Toque para pausar.</p></div>
-  <div class="tira" id="tira">
-    <figure class="pieza v"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/muestra-1.jpg"><source src="video/muestra-1.mp4" type="video/mp4"></video><figcaption class="cap"><span>Reel · 9:16 · 12 s</span><b>El brazo, de cerca</b></figcaption></figure>
-    <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-excavadora.jpg"><source src="video/excavadora.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Excavadora al atardecer, frente a la cordillera</b></figcaption></figure>
-    <figure class="pieza v"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/muestra-2.jpg"><source src="video/muestra-2.mp4" type="video/mp4"></video><figcaption class="cap"><span>Reel · 9:16 · 12 s</span><b>La excavadora entra a la faena</b></figcaption></figure>
-    <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-cargador.jpg"><source src="video/cargador.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Cargador frontal en la cantera del norte</b></figcaption></figure>
-    <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-torre.jpg"><source src="video/torre.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Torre de iluminación en la niebla</b></figcaption></figure>
-  </div>
-  <p class="hint">← deslice →</p>
-  <p class="nota"><b>Sobre las imágenes y el video:</b> las doce fotografías de faena y los diez videos (los cinco de esta muestra y los cinco del showcase DercoMaq) son piezas propias generadas por Digitals para JCB Chile en su paleta. Los recortes de máquinas son las fotos de catálogo que jcb.cl publica. Los datos, todos de jcb.cl.</p>
-</section>
-
-<section class="sc" id="showcase" aria-label="Showcase de video DercoMaq">
-  <div class="sec-h"><span class="k">03 · Showcase DercoMaq</span><h2 class="fc">Toda la línea, <em>con nivel de cine.</em></h2><p class="lead">Cinco reels que <b>Digitals</b> produjo con IA para DercoMaq, sin rodaje: telescópicos JCB, un elevador de mástil y un tractor. Así podemos mostrar cualquier máquina del catálogo, de JCB a Massey Ferguson o Hangcha. Active el sonido en el que quiera.</p></div>
+<section class="muestra sc" id="muestra" aria-label="Lo que podemos crear: video para JCB y DercoMaq">
+  <div class="sec-h"><span class="k">02 · Muestra de contenido</span><h2 class="fc">Lo que podemos crear para <em>JCB y DercoMaq</em></h2><p class="lead">Diez piezas de video que <b>Digitals</b> produjo con IA, sin rodaje: siete reels verticales para redes y tres loops para los heros de la web. Así podemos mostrar cualquier máquina del catálogo, de JCB a Massey Ferguson o Hangcha.</p></div>
+  <div class="sc-t" id="showcase"><b>Reels para redes</b><span>9:16 · 12 s · con sonido: active el que quiera</span></div>
   <div class="sc-escena" id="scEscena">
     <figure class="reel on" data-i="0">
       <video playsinline muted loop preload="none" poster="img/eq/dmq-telescopico-roca-588048f7.jpg" aria-label="Telescópico JCB: Sale de la roca"><source src="video/dmq/telescopico-roca-588048f7.mp4" type="video/mp4"></video>
@@ -187,32 +181,53 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
       <span class="barra" aria-hidden="true"><span></span></span>
     </figure>
     <figure class="reel" data-i="1">
-      <video playsinline muted loop preload="none" poster="img/eq/dmq-telescopico-alcance-aa3fc2be.jpg" aria-label="Telescópico JCB: El alcance, con datos sobre la imagen"><source src="video/dmq/telescopico-alcance-aa3fc2be.mp4" type="video/mp4"></video>
-      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de telescópico jcb: el alcance, con datos sobre la imagen"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
-      <figcaption><span class="n">02</span><b>Telescópico JCB</b><i>El alcance, con datos sobre la imagen</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <video playsinline muted loop preload="none" poster="img/eq/muestra-2.jpg" aria-label="Excavadora JCB: Entra a la faena, conectada"><source src="video/dmq/excavadora-faena-28c36f2b.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de excavadora jcb: entra a la faena, conectada"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">02</span><b>Excavadora JCB</b><i>Entra a la faena, conectada</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
       <span class="barra" aria-hidden="true"><span></span></span>
     </figure>
     <figure class="reel" data-i="2">
-      <video playsinline muted loop preload="none" poster="img/eq/dmq-elevador-obra-1489598e.jpg" aria-label="Elevador de mástil: Obra gruesa y trazos de luz"><source src="video/dmq/elevador-obra-1489598e.mp4" type="video/mp4"></video>
-      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de elevador de mástil: obra gruesa y trazos de luz"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
-      <figcaption><span class="n">03</span><b>Elevador de mástil</b><i>Obra gruesa y trazos de luz</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <video playsinline muted loop preload="none" poster="img/eq/muestra-1.jpg" aria-label="Excavadora JCB: Del brazo a LiveLink en el teléfono"><source src="video/dmq/excavadora-livelink-5f239ec2.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de excavadora jcb: del brazo a livelink en el teléfono"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">03</span><b>Excavadora JCB</b><i>Del brazo a LiveLink en el teléfono</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
       <span class="barra" aria-hidden="true"><span></span></span>
     </figure>
     <figure class="reel" data-i="3">
-      <video playsinline muted loop preload="none" poster="img/eq/dmq-elevador-piezas-7f61a421.jpg" aria-label="Elevador de mástil: Armado pieza por pieza"><source src="video/dmq/elevador-piezas-7f61a421.mp4" type="video/mp4"></video>
-      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de elevador de mástil: armado pieza por pieza"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
-      <figcaption><span class="n">04</span><b>Elevador de mástil</b><i>Armado pieza por pieza</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-telescopico-alcance-aa3fc2be.jpg" aria-label="Telescópico JCB: El alcance, con datos sobre la imagen"><source src="video/dmq/telescopico-alcance-aa3fc2be.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de telescópico jcb: el alcance, con datos sobre la imagen"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">04</span><b>Telescópico JCB</b><i>El alcance, con datos sobre la imagen</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
       <span class="barra" aria-hidden="true"><span></span></span>
     </figure>
     <figure class="reel" data-i="4">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-elevador-obra-1489598e.jpg" aria-label="Elevador de mástil: Obra gruesa y trazos de luz"><source src="video/dmq/elevador-obra-1489598e.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de elevador de mástil: obra gruesa y trazos de luz"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">05</span><b>Elevador de mástil</b><i>Obra gruesa y trazos de luz</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+    <figure class="reel" data-i="5">
+      <video playsinline muted loop preload="none" poster="img/eq/dmq-elevador-piezas-7f61a421.jpg" aria-label="Elevador de mástil: Armado pieza por pieza"><source src="video/dmq/elevador-piezas-7f61a421.mp4" type="video/mp4"></video>
+      <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de elevador de mástil: armado pieza por pieza"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
+      <figcaption><span class="n">06</span><b>Elevador de mástil</b><i>Armado pieza por pieza</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <span class="barra" aria-hidden="true"><span></span></span>
+    </figure>
+    <figure class="reel" data-i="6">
       <video playsinline muted loop preload="none" poster="img/eq/dmq-tractor-estudio-d9956df9.jpg" aria-label="Tractor: Estudio, polvo y luz roja"><source src="video/dmq/tractor-estudio-d9956df9.mp4" type="video/mp4"></video>
       <button class="son" type="button" aria-pressed="false" aria-label="Activar sonido de tractor: estudio, polvo y luz roja"><span class="off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M16 9.2l5 5.6M21 9.2l-5 5.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span><span class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.6L12 5.6v12.8l-4.4-3.9H4z" fill="currentColor"/><path d="M15.6 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.6a7.8 7.8 0 0 1 0 10.8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg></span></button>
-      <figcaption><span class="n">05</span><b>Tractor</b><i>Estudio, polvo y luz roja</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
+      <figcaption><span class="n">07</span><b>Tractor</b><i>Estudio, polvo y luz roja</i><span class="m">Reel 9:16 · 12 s · con sonido</span></figcaption>
       <span class="barra" aria-hidden="true"><span></span></span>
     </figure>
   </div>
-  <div class="sc-pie"><span class="sc-cont" id="scCont" aria-live="polite">01 / 05</span><span class="sc-ayuda">Toque un reel para pausar · el parlante activa el sonido</span></div>
+  <div class="sc-pie"><span class="sc-cont" id="scCont" aria-live="polite">01 / 07</span><span class="sc-ayuda">Toque un reel para pausar · el parlante activa el sonido</span></div>
+  <div class="sc-t"><b>Loops para la web</b><span>16:9 · 5 s · fondos de hero</span></div>
+  <div class="tira" id="tira">
+    <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-excavadora.jpg"><source src="video/excavadora.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Excavadora al atardecer, frente a la cordillera</b></figcaption></figure>
+    <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-cargador.jpg"><source src="video/cargador.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Cargador frontal en la cantera del norte</b></figcaption></figure>
+    <figure class="pieza h"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-torre.jpg"><source src="video/torre.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Torre de iluminación en la niebla</b></figcaption></figure>
+  </div>
+  <p class="hint">← deslice →</p>
+  <p class="nota"><b>Sobre las imágenes y el video:</b> las doce fotografías de faena y los diez videos son piezas propias generadas por Digitals para esta propuesta. Los recortes de máquinas son las fotos de catálogo que jcb.cl publica. Los datos, todos de jcb.cl.</p>
 </section>
+
 
 <section class="cta" id="conversemos">
   <span class="k">Siguiente paso</span>
